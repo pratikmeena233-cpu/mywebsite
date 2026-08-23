@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,9 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ================================
+         NAVBAR
+    ================================= -->
 
     <nav>
 
@@ -26,12 +29,18 @@
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
 
+            <button id="themeToggle" type="button">
+                🌙 Dark
+            </button>
+
         </div>
 
     </nav>
 
 
-    <!-- HERO -->
+    <!-- ================================
+         HERO
+    ================================= -->
 
     <section id="home" class="hero">
 
@@ -74,7 +83,9 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- ================================
+         ABOUT
+    ================================= -->
 
     <section id="about" class="section">
 
@@ -95,7 +106,9 @@
     </section>
 
 
-    <!-- PROJECTS -->
+    <!-- ================================
+         PROJECTS
+    ================================= -->
 
     <section id="projects" class="section projects">
 
@@ -108,6 +121,9 @@
         </h2>
 
         <div class="cards">
+
+
+            <!-- WEB DEVELOPMENT -->
 
             <div class="card">
 
@@ -126,6 +142,8 @@
             </div>
 
 
+            <!-- PYTHON PROJECTS -->
+
             <div class="card">
 
                 <div class="card-icon">
@@ -141,8 +159,19 @@
                     with Python.
                 </p>
 
+                <button
+                    type="button"
+                    class="project-btn"
+                    onclick="openPythonProjects()">
+
+                    View Python Projects 🚀
+
+                </button>
+
             </div>
 
+
+            <!-- GAME DEVELOPMENT -->
 
             <div class="card">
 
@@ -158,6 +187,15 @@
                     Exploring game ideas and interactive experiences.
                 </p>
 
+                <button
+                    type="button"
+                    class="project-btn"
+                    onclick="openGames()">
+
+                    Play Games 🎮
+
+                </button>
+
             </div>
 
         </div>
@@ -165,7 +203,318 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ================================
+         PYTHON PROJECT POPUP
+    ================================= -->
+
+    <div
+        id="pythonModal"
+        class="python-modal"
+        style="display: none;">
+
+        <div class="python-modal-box">
+
+            <button
+                type="button"
+                class="python-close"
+                onclick="closePythonProjects()">
+
+                ×
+
+            </button>
+
+            <div class="python-modal-icon">
+                🐍
+            </div>
+
+            <h2>
+                Python Projects
+            </h2>
+
+            <p>
+                Here are some Python projects I am learning
+                and experimenting with.
+            </p>
+
+
+            <div class="python-project-list">
+
+
+                <!-- CALCULATOR -->
+
+                <div class="python-project">
+
+                    <h3>
+                        🧮 Python Calculator
+                    </h3>
+
+                    <p>
+                        A simple calculator program built
+                        with Python.
+                    </p>
+
+                </div>
+
+
+                <!-- APP LAUNCHER -->
+
+                <div class="python-project">
+
+                    <h3>
+                        🚀 App Launcher
+                    </h3>
+
+                    <p>
+                        An experimental program for launching
+                        applications.
+                    </p>
+
+                </div>
+
+
+                <!-- MINI TOOLS -->
+
+                <div class="python-project">
+
+                    <h3>
+                        🛠️ Mini Tools
+                    </h3>
+
+                    <p>
+                        Small Python programs created for
+                        learning programming concepts.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         GAMES POPUP
+    ================================= -->
+
+    <div
+        id="gameModal"
+        class="game-modal"
+        style="display: none;">
+
+        <div class="game-modal-box">
+
+
+            <!-- CLOSE -->
+
+            <button
+                type="button"
+                class="game-close"
+                onclick="closeGames()">
+
+                ×
+
+            </button>
+
+
+            <!-- GAME TITLE -->
+
+            <h2>
+                🎮 PratikVerse Games
+            </h2>
+
+            <p>
+                Choose a game to play!
+            </p>
+
+
+            <!-- ============================
+                 GAME MENU
+            ============================= -->
+
+            <div
+                id="gameMenu"
+                class="game-menu">
+
+
+                <!-- TARGET CLICKER -->
+
+                <button
+                    type="button"
+                    class="game-choice"
+                    onclick="startTargetGameFromMenu()">
+
+                    <span class="game-choice-icon">
+                        🎯
+                    </span>
+
+                    <strong>
+                        Target Clicker
+                    </strong>
+
+                    <span>
+                        Test your clicking speed
+                    </span>
+
+                </button>
+
+
+                <!-- SNAKE GAME -->
+
+                <button
+                    type="button"
+                    class="game-choice"
+                    onclick="startSnakeGame()">
+
+                    <span class="game-choice-icon">
+                        🐍
+                    </span>
+
+                    <strong>
+                        Snake Game
+                    </strong>
+
+                    <span>
+                        Eat food and grow the snake
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- ============================
+                 TARGET CLICKER GAME
+            ============================= -->
+
+            <div
+                id="targetGame"
+                class="game-screen"
+                style="display: none;">
+
+
+                <button
+                    type="button"
+                    class="back-game-btn"
+                    onclick="showGameMenu()">
+
+                    ← Games
+
+                </button>
+
+
+                <h2>
+                    🎯 Target Clicker
+                </h2>
+
+
+                <div class="game-stats">
+
+                    <span>
+                        Score:
+                        <strong id="targetScore">
+                            0
+                        </strong>
+                    </span>
+
+                    <span>
+                        Time:
+                        <strong id="targetTime">
+                            30
+                        </strong>
+                        s
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="gameArea"
+                    class="game-area">
+
+
+                    <button
+                        type="button"
+                        id="gameTarget"
+                        class="game-target"
+                        onclick="hitTarget()">
+
+                        🎯
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ============================
+                 SNAKE GAME
+            ============================= -->
+
+            <div
+                id="snakeGame"
+                class="game-screen"
+                style="display: none;">
+
+
+                <button
+                    type="button"
+                    class="back-game-btn"
+                    onclick="showGameMenu()">
+
+                    ← Games
+
+                </button>
+
+
+                <h2>
+                    🐍 Snake Game
+                </h2>
+
+
+                <div class="snake-score">
+
+                    Score:
+                    <strong id="snakeScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <canvas
+                    id="snakeCanvas"
+                    width="400"
+                    height="400">
+                </canvas>
+
+
+                <p class="snake-controls">
+                    Use ⬆️ ⬇️ ⬅️ ➡️ to move
+                </p>
+
+
+                <button
+                    type="button"
+                    class="project-btn"
+                    onclick="restartSnakeGame()">
+
+                    🔄 Restart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
 
     <footer>
 
@@ -184,8 +533,17 @@
     </footer>
 
 
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
     <script src="script.js"></script>
 
 </body>
 
+</html>
+```
+<script src="./script.js"></script>
+
+</body>
 </html>
