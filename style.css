@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: white;
+}
+
+
+/* NAVBAR */
+
+nav {
+    height: 70px;
+    padding: 0 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(10, 10, 10, 0.95);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #00e5ff;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(circle at center, #12333a, #050505 65%);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* MOVING GLOW */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    background: #00e5ff;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.35;
+
+    top: 10%;
+    left: 5%;
+
+    animation: moveGlow 4s infinite alternate ease-in-out;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    background: #0066ff;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.35;
+
+    bottom: 5%;
+    right: 5%;
+
+    animation: moveGlow2 5s infinite alternate ease-in-out;
+}
+
+@keyframes moveGlow {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(300px, 150px);
+    }
+
+}
+
+@keyframes moveGlow2 {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-300px, -150px);
+    }
+
+}
+
+
+/* HERO CONTENT */
+
+.hero > div {
+    position: relative;
+    z-index: 2;
+}
+
+.small-text {
+    color: #00e5ff;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 75px;
+
+    line-height: 1.05;
+
+    margin: 20px 0;
+}
+
+h1 span {
+    color: #00e5ff;
+}
+
+.description {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #aaa;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* BUTTON */
+
+button {
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #00e5ff;
+
+    color: black;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow: 0 0 30px #00e5ff;
+}
+
+
+/* SECTIONS */
+
+.section {
+    padding: 100px 8%;
+
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.section > p {
+    color: #aaa;
+
+    font-size: 18px;
+}
+
+
+/* PROJECT CARDS */
+
+.cards {
+    margin-top: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+
+    padding: 35px 20px;
+
+    background: #111;
+
+    border: 1px solid #222;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    border-color: #00e5ff;
+
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #999;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #020202;
+
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .menu {
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    nav {
+        padding: 0 5%;
+    }
+
+}
