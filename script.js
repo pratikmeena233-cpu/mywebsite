@@ -656,6 +656,9 @@ window.addEventListener(
         const gameModal =
             document.getElementById("gameModal");
 
+        const editsModal =
+            document.getElementById("editsModal");
+
 
         if (
             pythonModal &&
@@ -676,9 +679,42 @@ window.addEventListener(
 
         }
 
+        if (
+            editsModal &&
+            event.target === editsModal
+        ) {
+            closeMyEdits();
+        }
+
     }
 );
 
+
+
+// ========================================
+// MY EDITS VIDEO GALLERY
+// ========================================
+
+function openMyEdits() {
+    const modal = document.getElementById("editsModal");
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+
+function closeMyEdits() {
+    const modal = document.getElementById("editsModal");
+    if (modal) {
+        // Pause videos when the gallery closes.
+        modal.querySelectorAll("video").forEach(function (video) {
+            video.pause();
+        });
+        modal.style.display = "none";
+    }
+}
+
+window.openMyEdits = openMyEdits;
+window.closeMyEdits = closeMyEdits;
 
 // ========================================
 // SCRIPT LOADED CHECK
