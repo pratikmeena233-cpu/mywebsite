@@ -10,9 +10,32 @@
 
     <title>PratikVerse</title>
 
+    <!-- WEBSITE FAVICON -->
+    <link rel="icon" type="image/png" href="./logo.png">
+
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* NAVBAR LOGO */
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            width: 150px;
+            height: 85px;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            nav .logo img {
+                width: 110px;
+                height: 65px;
+            }
+        }
+
         /* MY EDITS GALLERY */
         .edits-modal {
             display: none;
@@ -26,6 +49,7 @@
             padding: 20px;
             overflow-y: auto;
         }
+
         .edits-modal-box {
             position: relative;
             width: min(100%, 1000px);
@@ -38,6 +62,7 @@
             color: #f4fbff;
             box-shadow: 0 0 35px rgba(0, 229, 255, 0.18);
         }
+
         .edits-close {
             position: sticky;
             float: right;
@@ -51,16 +76,19 @@
             padding: 5px 12px;
             cursor: pointer;
         }
+
         .edits-modal-box h2 {
             color: #00e5ff;
             margin-top: 8px;
         }
+
         .edits-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 18px;
             margin-top: 24px;
         }
+
         .edit-video-card {
             border: 1px solid rgba(0, 229, 255, 0.35);
             border-radius: 14px;
@@ -68,14 +96,17 @@
             background: rgba(0, 229, 255, 0.045);
             min-width: 0;
         }
+
         .edit-video-card h3 {
             margin: 0 0 8px;
             color: #f4fbff;
         }
+
         .edit-video-card p {
             color: #b7cbd1;
             font-size: 0.92rem;
         }
+
         .edit-video-card video {
             display: block;
             width: 100%;
@@ -84,6 +115,7 @@
             border-radius: 10px;
             margin-top: 12px;
         }
+
         .edit-play-btn {
             border: 1px solid #00e5ff;
             border-radius: 8px;
@@ -93,13 +125,20 @@
             cursor: pointer;
             font-weight: 600;
         }
+
         .edit-play-btn:hover {
             background: #00e5ff;
             color: #031014;
         }
+
         @media (max-width: 600px) {
-            .edits-modal { padding: 10px; }
-            .edits-modal-box { padding: 18px; }
+            .edits-modal {
+                padding: 10px;
+            }
+
+            .edits-modal-box {
+                padding: 18px;
+            }
         }
     </style>
 
@@ -107,14 +146,12 @@
 
 <body>
 
-    <!-- ================================
-         NAVBAR
-    ================================= -->
+    <!-- NAVBAR -->
 
     <nav>
 
         <div class="logo">
-            PRATIKVERSE
+            <img src="logo.png" alt="PratikVerse Logo">
         </div>
 
         <div class="menu">
@@ -132,9 +169,7 @@
     </nav>
 
 
-    <!-- ================================
-         HERO
-    ================================= -->
+    <!-- HERO -->
 
     <section id="home" class="hero">
 
@@ -177,9 +212,7 @@
     </section>
 
 
-    <!-- ================================
-         ABOUT
-    ================================= -->
+    <!-- ABOUT -->
 
     <section id="about" class="section">
 
@@ -200,9 +233,7 @@
     </section>
 
 
-    <!-- ================================
-         PROJECTS
-    ================================= -->
+    <!-- PROJECTS -->
 
     <section id="projects" class="section projects">
 
@@ -291,28 +322,38 @@
 
             </div>
 
+
             <!-- MY EDITS -->
+
             <div class="card">
-                <div class="card-icon">🎬</div>
+
+                <div class="card-icon">
+                    🎬
+                </div>
+
                 <h3>My Edits</h3>
-                <p>Watch my video editing projects directly on PratikVerse.</p>
+
+                <p>
+                    Watch my video editing projects directly on PratikVerse.
+                </p>
+
                 <button
                     type="button"
                     class="project-btn"
                     onclick="openMyEdits()">
-                    Explore My Edits 🎬
-                </button>
-            </div>
 
+                    Explore My Edits 🎬
+
+                </button>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- ================================
-         PYTHON PROJECT POPUP
-    ================================= -->
+    <!-- PYTHON PROJECT POPUP -->
 
     <div
         id="pythonModal"
@@ -345,13 +386,9 @@
 
             <div class="python-project-list">
 
-                <!-- CALCULATOR -->
-
                 <div class="python-project">
 
-                    <h3>
-                        🧮 Python Calculator
-                    </h3>
+                    <h3>🧮 Python Calculator</h3>
 
                     <p>
                         A simple calculator program built
@@ -360,14 +397,9 @@
 
                 </div>
 
-
-                <!-- APP LAUNCHER -->
-
                 <div class="python-project">
 
-                    <h3>
-                        🚀 App Launcher
-                    </h3>
+                    <h3>🚀 App Launcher</h3>
 
                     <p>
                         An experimental program for launching
@@ -376,14 +408,9 @@
 
                 </div>
 
-
-                <!-- MINI TOOLS -->
-
                 <div class="python-project">
 
-                    <h3>
-                        🛠️ Mini Tools
-                    </h3>
+                    <h3>🛠️ Mini Tools</h3>
 
                     <p>
                         Small Python programs created for
@@ -399,9 +426,7 @@
     </div>
 
 
-    <!-- ================================
-         GAMES POPUP
-    ================================= -->
+    <!-- GAMES POPUP -->
 
     <div
         id="gameModal"
@@ -409,8 +434,6 @@
         style="display: none;">
 
         <div class="game-modal-box">
-
-            <!-- CLOSE -->
 
             <button
                 type="button"
@@ -421,9 +444,6 @@
 
             </button>
 
-
-            <!-- GAME TITLE -->
-
             <h2>
                 🎮 PratikVerse Games
             </h2>
@@ -432,14 +452,11 @@
                 Choose a game to play!
             </p>
 
-
             <!-- GAME MENU -->
 
             <div
                 id="gameMenu"
                 class="game-menu">
-
-                <!-- TARGET CLICKER -->
 
                 <button
                     type="button"
@@ -460,8 +477,6 @@
 
                 </button>
 
-
-                <!-- SNAKE GAME -->
 
                 <button
                     type="button"
@@ -485,9 +500,7 @@
             </div>
 
 
-            <!-- ============================
-                 TARGET CLICKER GAME
-            ============================= -->
+            <!-- TARGET CLICKER GAME -->
 
             <div
                 id="targetGame"
@@ -511,16 +524,12 @@
 
                     <span>
                         Score:
-                        <strong id="targetScore">
-                            0
-                        </strong>
+                        <strong id="targetScore">0</strong>
                     </span>
 
                     <span>
                         Time:
-                        <strong id="targetTime">
-                            30
-                        </strong>
+                        <strong id="targetTime">30</strong>
                         s
                     </span>
 
@@ -545,9 +554,7 @@
             </div>
 
 
-            <!-- ============================
-                 SNAKE GAME
-            ============================= -->
+            <!-- SNAKE GAME -->
 
             <div
                 id="snakeGame"
@@ -571,9 +578,7 @@
 
                     Score:
 
-                    <strong id="snakeScore">
-                        0
-                    </strong>
+                    <strong id="snakeScore">0</strong>
 
                 </div>
 
@@ -603,34 +608,59 @@
     </div>
 
 
+    <!-- MY EDITS VIDEO GALLERY -->
 
-    <!-- ================================
-         MY EDITS VIDEO GALLERY POPUP
-    ================================= -->
-    <div id="editsModal" class="edits-modal" style="display: none;">
+    <div
+        id="editsModal"
+        class="edits-modal"
+        style="display: none;">
+
         <div class="edits-modal-box">
-            <button type="button" class="edits-close" onclick="closeMyEdits()" aria-label="Close My Edits">&times;</button>
+
+            <button
+                type="button"
+                class="edits-close"
+                onclick="closeMyEdits()"
+                aria-label="Close My Edits">
+
+                &times;
+
+            </button>
+
             <h2>🎬 My Edits</h2>
-            <p>Watch my video editing projects right here on PratikVerse.</p>
+
+            <p>
+                Watch my video editing projects right here on PratikVerse.
+            </p>
 
             <div class="edits-gallery">
+
                 <article class="edit-video-card">
+
                     <h3>Pratik Edit 01</h3>
+
                     <p>My video edit</p>
+
                     <video controls playsinline preload="metadata">
-                        <source src="./Pratik_edit%20(3).mp4" type="video/mp4">
+
+                        <source
+                            src="./Pratik_edit%20(3).mp4"
+                            type="video/mp4">
+
                         Your browser does not support HTML video.
+
                     </video>
+
                 </article>
 
-                <!-- To add another edit later, copy an edit-video-card and change its title and video filename. -->
             </div>
+
         </div>
+
     </div>
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -672,9 +702,7 @@
     </footer>
 
 
-    <!-- ================================
-         JAVASCRIPT
-    ================================= -->
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
