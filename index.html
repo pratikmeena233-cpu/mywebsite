@@ -159,6 +159,8 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#features">Features</a>
+            <a href="#blog">Blog</a>
 
             <button id="themeToggle" type="button">
                 🌙 Dark
@@ -352,6 +354,100 @@
 
     </section>
 
+
+    <!-- PRATIKVERSE 2.0: DASHBOARD + SEARCH -->
+    <section id="features" class="section pv-section">
+        <p class="section-label">EXPLORE MORE</p>
+        <h2>PratikVerse Hub</h2>
+        <p class="section-text">A small collection of useful tools, experiments and creative work — all in one place.</p>
+
+        <div class="pv-dashboard">
+            <article class="pv-stat"><span class="pv-stat-icon">⚡</span><strong>Explore</strong><small>New ideas and experiments</small></article>
+            <article class="pv-stat"><span class="pv-stat-icon">🧰</span><strong>Useful tools</strong><small>Simple browser-based utilities</small></article>
+            <article class="pv-stat"><span class="pv-stat-icon">🎨</span><strong>Create</strong><small>Design and development</small></article>
+        </div>
+
+        <div class="pv-search-wrap">
+            <label for="pvSearch">Search PratikVerse</label>
+            <input id="pvSearch" type="search" placeholder="Search tools, articles and projects..." autocomplete="off">
+            <p id="pvSearchStatus" class="pv-muted" aria-live="polite">Try “word counter”, “coding” or “editing”.</p>
+        </div>
+
+        <div class="pv-subsection">
+            <p class="section-label">BROWSER TOOLS</p>
+            <h2 class="pv-subtitle">Mini Tools</h2>
+            <div class="pv-tool-grid">
+                <article class="pv-panel pv-searchable" data-search="word counter writing words characters text tool">
+                    <div class="pv-tool-icon">📝</div><h3>Word Counter</h3>
+                    <p>Count words and characters while you type.</p>
+                    <textarea id="wordInput" rows="4" placeholder="Type or paste your text here..."></textarea>
+                    <div class="pv-count-row"><span>Words: <strong id="wordCount">0</strong></span><span>Characters: <strong id="charCount">0</strong></span></div>
+                </article>
+                <article class="pv-panel pv-searchable" data-search="calculator maths calculation numbers tool">
+                    <div class="pv-tool-icon">🧮</div><h3>Quick Calculator</h3>
+                    <p>Do basic calculations in your browser.</p>
+                    <input id="calcInput" type="text" inputmode="decimal" placeholder="Example: (25 + 5) * 2" aria-label="Calculation">
+                    <button class="project-btn" id="calcButton" type="button">Calculate</button>
+                    <p class="pv-result" id="calcResult" aria-live="polite">Result will appear here.</p>
+                </article>
+                <article class="pv-panel pv-searchable" data-search="focus timer study productivity pomodoro tool">
+                    <div class="pv-tool-icon">⏱️</div><h3>Focus Timer</h3>
+                    <p>A simple 5-minute focus session.</p>
+                    <div id="focusTime" class="pv-timer">05:00</div>
+                    <div class="pv-button-row"><button class="project-btn" id="focusStart" type="button">Start</button><button class="pv-secondary-btn" id="focusReset" type="button">Reset</button></div>
+                    <p class="pv-muted" id="focusStatus" aria-live="polite">Ready when you are.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="pv-subsection">
+            <p class="section-label">CREATIVE WORK</p><h2 class="pv-subtitle">Services & Showcase</h2>
+            <div class="pv-tool-grid">
+                <article class="pv-panel pv-searchable" data-search="website development coding html css javascript service">
+                    <div class="pv-tool-icon">💻</div><h3>Website Projects</h3><p>Explore my experiments with websites and front-end development.</p><a class="pv-text-link" href="#projects">View projects →</a>
+                </article>
+                <article class="pv-panel pv-searchable" data-search="video editing creative edits design service">
+                    <div class="pv-tool-icon">🎬</div><h3>Video Editing</h3><p>Creative edits and visual experiments from my editing journey.</p><button class="project-btn" type="button" onclick="openMyEdits()">View my edits</button>
+                </article>
+                <article class="pv-panel pv-searchable" data-search="logo design graphic design animation creative">
+                    <div class="pv-tool-icon">✨</div><h3>Logo & Motion Design</h3><p>A space for animated logo concepts and design experiments.</p><span class="pv-coming">More projects coming soon</span>
+                </article>
+            </div>
+        </div>
+
+        <div class="pv-subsection pv-searchable" data-search="digital store products templates downloads">
+            <p class="section-label">DIGITAL CORNER</p><h2 class="pv-subtitle">Digital Store</h2>
+            <div class="pv-panel pv-store-panel"><div class="pv-tool-icon">🛍️</div><h3>Digital Products</h3><p>Templates, creative resources and useful downloads may appear here as they are ready.</p><span class="pv-coming">Store coming soon · No payments are collected on this page</span></div>
+        </div>
+
+        <div class="pv-subsection pv-ad-area">
+            <p class="section-label">ADVERTISEMENT SPACE</p>
+            <div class="pv-ad-placeholder"><span>Advertisement space</span><small>Ads may appear here after the site meets the advertising provider’s requirements and is approved.</small></div>
+        </div>
+    </section>
+
+    <!-- BLOG / LEARNING NOTES -->
+    <section id="blog" class="section pv-section pv-blog-section">
+        <p class="section-label">NOTES FROM THE JOURNEY</p><h2>Tech & Creative Blog</h2>
+        <p class="section-text">Short, original notes about learning, building and creating. New articles can be added here over time.</p>
+        <div class="pv-tool-grid">
+            <article class="pv-panel pv-searchable" data-search="coding beginner html css javascript website article"><span class="pv-article-tag">CODING</span><h3>How a Website Comes Together</h3><p>HTML gives a page its structure, CSS shapes its appearance, and JavaScript adds interaction.</p><span class="pv-coming">Learning note</span></article>
+            <article class="pv-panel pv-searchable" data-search="creative video editing design article"><span class="pv-article-tag">CREATIVITY</span><h3>Learning Through Small Projects</h3><p>Small experiments make it easier to practise one skill, test an idea and improve it step by step.</p><span class="pv-coming">Learning note</span></article>
+            <article class="pv-panel pv-searchable" data-search="productivity focus learning article"><span class="pv-article-tag">LEARNING</span><h3>Building a Consistent Learning Habit</h3><p>A clear goal and a short, focused practice session can make learning feel more manageable.</p><span class="pv-coming">Learning note</span></article>
+        </div>
+    </section>
+
+    <!-- FEEDBACK -->
+    <section id="feedback" class="section pv-section">
+        <p class="section-label">YOUR IDEAS MATTER</p><h2>Send Feedback</h2>
+        <p class="section-text">Found a bug or have an idea for a new tool? Prepare a feedback message below.</p>
+        <div class="pv-panel pv-feedback-panel">
+            <label for="feedbackMessage">Your feedback</label>
+            <textarea id="feedbackMessage" rows="4" maxlength="1000" placeholder="Write your suggestion or report a bug..."></textarea>
+            <button class="project-btn" id="feedbackButton" type="button">Prepare Feedback Email</button>
+            <p id="feedbackStatus" class="pv-muted" aria-live="polite">This opens your email app; it does not send anything automatically.</p>
+        </div>
+    </section>
 
     <!-- PYTHON PROJECT POPUP -->
 
@@ -694,6 +790,8 @@
             ▶ Visit My YouTube Channel
 
         </a>
+
+        <div class="pv-footer-links"><a href="#features">Features</a><a href="#blog">Blog</a><a href="#feedback">Feedback</a></div>
 
         <p class="copyright">
             © 2026 PratikVerse

@@ -723,3 +723,135 @@ window.closeMyEdits = closeMyEdits;
 console.log(
     "✅ PRATIKVERSE script.js loaded successfully!"
 );
+
+// ========================================
+// PRATIKVERSE 2.0 - NEW INTERACTIONS
+// ========================================
+
+// Dark / light theme toggle (keeps the existing button and CSS classes).
+(function initThemeToggle() {
+    const toggle = document.getElementById("themeToggle");
+    if (!toggle) return;
+    const savedTheme = localStorage.getItem("pratikverse-theme");
+    if (savedTheme === "light") document.body.classList.add("light-mode");
+    const updateLabel = () => {
+        toggle.textContent = document.body.classList.contains("light-mode") ? "☀️ Light" : "🌙 Dark";
+    };
+    updateLabel();
+    toggle.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+        localStorage.setItem("pratikverse-theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+        updateLabel();
+    });
+})();
+
+// Search across the new tools, articles and showcase cards.
+(function initPratikVerseSearch() {
+    const input = document.getElementById("pvSearch");
+    const status = document.getElementById("pvSearchStatus");
+    if (!input) return;
+    const searchable = Array.from(document.querySelectorAll(".pv-searchable"));
+    input.addEventListener("input", function () {
+        const query = input.value.trim().toLowerCase();
+        let visible = 0;
+        searchable.forEach(function (item) {
+            const text = (item.innerText + " " + (item.dataset.search || "")).toLowerCase();
+            const match = !query || text.includes(query);
+            item.classList.toggle("pv-hidden-search", !match);
+            if (match) visible++;
+        });
+        if (status) status.textContent = query ? (visible + " matching item(s) found.") : "Try “word counter”, “coding” or “editing”.";
+    });
+})();
+
+// Word and character counter.
+(function initWordCounter() {
+    const input = document.getElementById("wordInput");
+    const words = document.getElementById("wordCount");
+    const chars = document.getElementById("charCount");
+    if (!input || !words || !chars) return;
+    input.addEventListener("input", function () {
+        const value = input.value.trim();
+        words.textContent = value ? value.split(/\s+/).length : 0;
+        chars.textContent = input.value.length;
+    });
+})();
+
+// Basic calculator. Only arithmetic characters are accepted; no eval() is used.
+(function initCalculator() {
+    const input = document.getElementById("calcInput");
+    const button = document.getElementById("calcButton");
+    const output = document.getElementById("calcResult");
+    if (!input || !button || !output) return;
+    button.addEventListener("click", function () {
+        const expression = input.value.trim();
+        if (!expression || !/^[0-9+\-*/().%\s]+$/.test(expression)) {
+            output.textContent = "Please enter a valid arithmetic expression.";
+            return;
+        }
+        try {
+            const result = Function('"use strict"; return (' + expression + ')')();
+            output.textContent = Number.isFinite(result) ? "Result: " + result : "Please check your calculation.";
+        } catch (error) {
+            output.textContent = "Please check the expression and try again.";
+        }
+    });
+})();
+
+// Five-minute focus timer.
+(function initFocusTimer() {
+    const display = document.getElementById("focusTime");
+    const start = document.getElementById("focusStart");
+    const reset = document.getElementById("focusReset");
+    const status = document.getElementById("focusStatus");
+    if (!display || !start || !reset) return;
+    let remaining = 300;
+    let timer = null;
+    const render = () => {
+        const minutes = Math.floor(remaining / 60).toString().padStart(2, "0");
+        const seconds = (remaining % 60).toString().padStart(2, "0");
+        display.textContent = minutes + ":" + seconds;
+    };
+    start.addEventListener("click", function () {
+        if (timer) {
+            clearInterval(timer); timer = null; start.textContent = "Resume";
+            if (status) status.textContent = "Paused.";
+            return;
+        }
+        if (remaining <= 0) return;
+        start.textContent = "Pause";
+        if (status) status.textContent = "Focus session in progress.";
+        timer = setInterval(function () {
+            remaining--; render();
+            if (remaining <= 0) {
+                clearInterval(timer); timer = null; start.textContent = "Finished";
+                if (status) status.textContent = "Session complete. Take a short break.";
+            }
+        }, 1000);
+    });
+    reset.addEventListener("click", function () {
+        clearInterval(timer); timer = null; remaining = 300; render();
+        start.textContent = "Start";
+        if (status) status.textContent = "Ready when you are.";
+    });
+    render();
+})();
+
+// Feedback opens a pre-filled email draft. Nothing is sent automatically.
+(function initFeedback() {
+    const button = document.getElementById("feedbackButton");
+    const message = document.getElementById("feedbackMessage");
+    const status = document.getElementById("feedbackStatus");
+    if (!button || !message) return;
+    button.addEventListener("click", function () {
+        const text = message.value.trim();
+        if (!text) {
+            if (status) status.textContent = "Please write your feedback first.";
+            return;
+        }
+        const subject = encodeURIComponent("PratikVerse Website Feedback");
+        const body = encodeURIComponent(text);
+        window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+        if (status) status.textContent = "Your email app should open with the feedback draft. You can review it before sending.";
+    });
+})();
